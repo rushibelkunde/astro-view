@@ -14,7 +14,7 @@ export async function connectDB() {
         console.error('Failed to connect to MongoDB', err)
         process.exit(1)
     }
-} lund
+}
 
 export function getDB() {
     if (!db) {
