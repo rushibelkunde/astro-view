@@ -1,0 +1,1 @@
+﻿src/components/gamification/Passport.tsx(3,10): error TS1484: 'BadgeData' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.

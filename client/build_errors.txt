@@ -1,0 +1,6 @@
+﻿src/components/3d/Earth.tsx(11,15): error TS6133: 'state' is declared but its value is never read.
+src/components/3d/materials/EarthShader.ts(1,10): error TS6133: 'ShaderMaterial' is declared but its value is never read.
+src/components/3d/materials/EarthShader.ts(2,1): error TS6133: 'extend' is declared but its value is never read.
+src/components/3d/SatelliteSwarm.tsx(37,15): error TS6133: 'state' is declared but its value is never read.
+src/components/audio/SpaceAudio.tsx(8,11): error TS6133: 'droneRef' is declared but its value is never read.
+src/components/ui/AlertToast.tsx(2,10): error TS6133: 'AlertTriangle' is declared but its value is never read.
