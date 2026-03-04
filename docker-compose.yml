@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  app:
+    image: golang:1.22-alpine
+    container_name: corpo-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "sleep infinity" # Placeholder until we have the server setup
+    ports:
+      - "8080:8080"
+    environment:
+      - POSTGRES_URL=postgres://corpo:password@db:5432/corpo?sslmode=disable
+      - REDIS_URL=redis:6379
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+
+  db:
+    image: postgres:15-alpine
+    container_name: corpo-db
+    environment:
+      POSTGRES_USER: corpo
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: corpo
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:7-alpine
+    container_name: corpo-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: corpo-rabbitmq
+    ports:
+      - "5672:5672" # AMQP protocol port
+      - "15672:15672" # Management UI
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+
+  piston:
+    image: ghcr.io/engineer-man/piston
+    container_name: corpo-piston
+    ports:
+      - "2000:2000"
+    restart: always
+
+volumes:
+  pgdata:
+  redisdata:
+  rabbitmqdata:

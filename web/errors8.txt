@@ -1,0 +1,13 @@
+src/pages/roles-page.tsx(11,10): error TS6133: 'Role' is declared but its value is never read.
+src/pages/roles-page.tsx(13,10): error TS6133: 'PermissionMatrix' is declared but its value is never read.
+src/pages/roles-page.tsx(35,12): error TS6133: 'rolePermissions' is declared but its value is never read.
+src/pages/roles-page.tsx(62,32): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'Set<unknown>' is not assignable to parameter of type 'Set<string> | ((prev: Set<string>) => Set<string>)'.
+      Type 'Set<unknown>' is not assignable to type 'Set<string>'.
+        Type 'unknown' is not assignable to type 'string'.
+src/pages/roles-page.tsx(79,28): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'Set<unknown>' is not assignable to parameter of type 'Set<string> | ((prev: Set<string>) => Set<string>)'.
+      Type 'Set<unknown>' is not assignable to type 'Set<string>'.
+        Type 'unknown' is not assignable to type 'string'.
